@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>JavaScript Class with Static Method & Inheritance</h2>
+    <button onclick="showDetails()">Show Details</button>
+    
+    <div id="output"></div>
+    
+    <script>
+        // Parent Class
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            // Method to display details
+            display() {
+                return "Name: " + this.name + "<br>Age: " + this.age;
+            }
+
+            // Static Method
+            static greet() {
+                return "Hello! Welcome to JavaScript Classes";
+            }
+        }
+
+        // Child Class (Inheritance)
+        class Student extends Person {
+            constructor(name, age, course) {
+                super(name, age); // call parent constructor
+                this.course = course;
+            }
+
+            // Method to display student details
+            showStudent() {
+                return this.display() + "<br>Course: " + this.course;
+            }
+        }
+
+        // Function to display output
+        function showDetails() {
+            // Calling static method
+            let greeting = Person.greet();
+
+            // Creating object of child class
+            let student1 = new Student("Divya", 16, "Computer Science");
+
+            // Displaying data
+            document.getElementById("output").innerHTML =
+                greeting + "<br><br>" + student1.showStudent();
+        }
+    </script>
+
+</body>
+</html>
